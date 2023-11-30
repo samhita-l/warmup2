@@ -9,12 +9,17 @@
 </head>
 <body>
     <body style="background-color:lightsteelblue;">
-    <h1>Enter a letter to convert it into the corresponding binary numbers</h1>
+        <div style="text-align: center;">
+            <h1>Enter a letter to convert it into the corresponding binary numbers</h1>
+        </div>
     <div style="text-align: center;">
+        <input type="text" id="letterinput" placeholder="Enter a letter" maxlength="1">
+        <button>
+            Convert
+        </button>
+        <p id="binaryOutput"></p>
             <script>
-                input == raw_input ('Enter Here')
-                if (raw_input== 'a')
-                print('01000001')
+                var input = raw_input('Type a letter Here'); print(input.charCodeAt(0).toString(2))
             </script>
     </div>
 
