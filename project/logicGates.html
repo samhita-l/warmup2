@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    /*Remember to move the style into scss folder later
     /* Style for the button container */
     .button-container {
       background-color: #c0c0c0; /* Greyish silver background color */
@@ -27,15 +28,35 @@
   </style>
 </head>
 <body>
-
     <div class="button-container">
-        <button class="my-button">Button 1</button>
-        <button class="my-button">Button 2</button>
-        <button class="my-button">Button 3</button>
-        <button class="my-button">Button 4</button>
-        <button class="my-button">Button 5</button>
-        <button class="my-button">Button 6</button>
+        <button class="my-button" id="b1">Button 1</button>
+        <button class="my-button" id="b2">Button 2</button>
+        <button class="my-button" id="b3">Button 3</button>
+        <button class="my-button" id="b4">Button 4</button>
+        <button class="my-button" id="b5">Button 5</button>
+        <button class="my-button" id="b6">Button 6</button>
       </div>
-    <img src="door1.png">
+    <img src="door1.png" id="door1">
+<script>
+  function changeImage () {
+        var image = document.getElementById('door1')
+        if (image.src.match("door1.png")) {
+            image.src = "door1_Open.png"
+            image.alt = "Image 2";
+      } else {
+        image.src = "image1.jpg";
+        image.alt = "Image 1";
+        }
+    }
+
+    function checkRight() {
+        var b = document.getElementById('door1')
+        if (box1 = 1 and box2 = 1) {
+            changeImage()
+        } else {
+            break
+        }
+    }
+</script>
 </body>
 </html>
