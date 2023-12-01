@@ -59,4 +59,45 @@
     }
 </script>
 </body>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #lightbulb {
+      width: 100px;
+      height: 100px;
+      margin: 20px;
+      background-image: url('off_lightbulb.png'); /* Replace with the path to your off lightbulb image */
+      background-size: cover;
+    }
+
+    .button {
+      padding: 10px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="lightbulb"></div>
+
+<button class="button" onclick="checkAnswer(true)">True</button>
+<button class="button" onclick="checkAnswer(false)">False</button>
+
+<script>
+  function checkAnswer(isCorrect) {
+    if (isCorrect) {
+      document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')"; /* Replace with the path to your on lightbulb image */
+    } else {
+      alert("Incorrect answer. Try again!");
+    }
+  }
+</script>
+
+</body>
+</html>
+
 </html>
