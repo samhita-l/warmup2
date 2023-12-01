@@ -43,15 +43,34 @@
             <h1>
                 <font size="50">Enter a letter to convert it into the corresponding binary numbers</font></h1>
         </div>
-    <div style="text-align: center;">
-        <input type="text" id="letterinput" placeholder="Enter a letter" maxlength="1">
-        <button>
+        <div style="text-align: center;">
+            <p>
+                <font color="lightsteelblue">divider</font> 
+            </p>
+        </div>
+        <div style="text-align: center;">
+            <p>
+                <font color="lightsteelblue">divider</font> 
+            </p>
+        </div>
+        <div style="text-align: center;">
+        <input type="text" id="letterInput" placeholder="Enter a letter" maxlength="1">
+        <button onclick="convertToBinary()">
             Convert
         </button>
         <p id="binaryOutput"></p>
-            <script>
-                var input = raw_input('Type a letter Here'); print(input.charCodeAt(0).toString(2))
-            </script>
+        <script>
+            function convertToBinary() {
+                var letter = document.getElementById('letterInput').value;
+                if (letter.length === 1) {
+                    var binary = letter.charCodeAt(0).toString(2);
+                    document.getElementById('binaryOutput').innerText = 'Binary: ' + binary;
+                }
+                    else {
+                        document.getElementById('binaryOutput').innerText = 'Please enter a single letter.';
+                    }
+                }
+        </script>
     </div>
 
 </body>
