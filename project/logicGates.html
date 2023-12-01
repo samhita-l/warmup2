@@ -25,46 +25,7 @@
       border-radius: 4px; /* Optional: Add rounded corners */
       cursor: pointer; /* Change cursor to pointer on hover */
     }
-  </style>
-</head>
-<body>
-    <div class="button-container">
-        <button class="my-button" id="b1">Button 1</button>
-        <button class="my-button" id="b2">Button 2</button>
-        <button class="my-button" id="b3">Button 3</button>
-        <button class="my-button" id="b4">Button 4</button>
-        <button class="my-button" id="b5">Button 5</button>
-        <button class="my-button" id="b6">Button 6</button>
-      </div>
-      <img src="door1.png" width="300" height="650">
-<script>
-  function changeImage () {
-        var image = document.getElementById('door1')
-        if (image.src.match("door1.png")) {
-            image.src = "door1_Open.png"
-            image.alt = "Image 2";
-      } else {
-        image.src = "image1.jpg";
-        image.alt = "Image 1";
-        }
-    }
 
-    function checkRight() {
-        var b = document.getElementById('door1')
-        if (box1 = 1 and box2 = 1) {
-            changeImage()
-        } else {
-            break
-        }
-    }
-</script>
-</body>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
     #lightbulb {
       width: 100px;
       height: 100px;
@@ -81,23 +42,82 @@
   </style>
 </head>
 <body>
-
-<div id="lightbulb"></div>
-
-<button class="button" onclick="checkAnswer(true)">True</button>
-<button class="button" onclick="checkAnswer(false)">False</button>
-
+    <div class="button-container">
+        <button class="my-button" id="b1" onclick="toggle1Value">Button 1</button>
+        <button class="my-button" id="b2" onclick="toggle2Value">Button 2</button>
+        <button class="my-button" id="b3" onclick="toggle3Value">Button 3</button>
+        <button class="my-button" id="b4" onclick="toggle4Value">Button 4</button>
+        <button class="my-button" id="b5" onclick="toggle5Value">Button 5</button>
+        <button class="my-button" id="b6" onclick="toggle6Value">Button 6</button>
+      </div>
+      <img src="door1.png" width="300" height="650" id="door1">
+      <div id="lightbulb"></div>
+      <button class="button" onclick="checkAnswer(true)">True</button>
+      <button class="button" onclick="checkAnswer(false)">False</button>
 <script>
+  // Function to change image from the door to the open door
+  function changeImage () {
+        var image = document.getElementById('door1')
+        if (image.src.match("door1.png")) {
+            image.src = "door1_Open.png"
+            image.alt = "Image 2";
+      } else {
+        image.src = "door1.png";
+        image.alt = "Image 1";
+        }
+    }
+
+  // Variable to keep track of the button value
+  var button1Value = 0;
+  var button2Value = 0;
+  var button3Value = 0;
+  var button4Value = 0;
+  var button5Value = 0;
+  var button6Value = 0;
+
+  // Function to toggle the button value
+  function toggle1Value() {
+    // Toggle between 0 and 1
+    button1Value = 1 - button1Value;
+  }
+
+  // Function to toggle the button value
+  function toggle2Value() {
+  // Toggle between 0 and 1
+  button2Value = 1 - button2Value;
+  }
+
+  // Function to toggle the button value
+  function toggle3Value() {
+  // Toggle between 0 and 1
+  button3Value = 1 - button3Value;
+  }
+
+  // Function to toggle the button value
+  function toggle4Value() {
+  // Toggle between 0 and 1
+  button4Value = 1 - button4Value;
+  }
+
+  // Function to toggle the button value
+  function toggle5Value() {
+  // Toggle between 0 and 1
+  button5Value = 1 - button5Value;
+  }
+
+  // Function to toggle the button value
+  function toggle6Value() {
+  // Toggle between 0 and 1
+  button6Value = 1 - button6Value;
+  }
+
   function checkAnswer(isCorrect) {
-    if (isCorrect) {
+      if (isCorrect) {
       document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')"; /* Replace with the path to your on lightbulb image */
     } else {
       alert("Incorrect answer. Try again!");
     }
   }
 </script>
-
 </body>
-</html>
-
 </html>
