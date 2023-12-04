@@ -34,15 +34,29 @@
             margin: 20px;
         }
 
+        /* Style for the button-container */
         .button-container {
-            background-color: #c0c0c0; /* Greyish silver background color */
-            border: 2px solid black; /* Black border */
-            padding: 10px; /* Padding around the buttons */
-            height: 100%;
+            background-color: #f0f0f0; /* Lighter background color */
+            border: 2px solid #999; /* Lighter border color */
+            padding: 15px; /* Increased padding around the buttons */
             display: grid;
             grid-template-columns: repeat(3, 1fr); /* Three columns */
-            gap: 8px; /* Gap between buttons */
+            gap: 12px; /* Increased gap between buttons */
             align-items: center;
+            margin-top: 20px; /* Adjusted margin between the two button containers */
+        }
+
+        /* Style for the buttons in the container */
+        .button-container.my-button {
+            background-color: #b0b0b0; /* Lighter grey background color */
+            color: #333; /* Darker text color */
+            border: 2px solid #666; /* Darker border color */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+        }
+
+        .button-container .my-button:hover {
+            background-color: #808080; /* Darker grey background color on hover */
+            color: #fff; /* White text color on hover */
         }
 
         /* Style for the buttons */
@@ -78,7 +92,7 @@
             <button class="my-button" id="b5" onclick="toggle5Value()">Button 5</button>
             <button class="my-button" id="b6" onclick="toggle6Value()">Button 6</button>
         </div>
-        <div class="button-container duplicate">
+        <div class="button-container">
           <button class="my-button" id="b7" onclick="toggle7Value()">Button 7</button>
           <button class="my-button" id="b8" onclick="toggle8Value()">Button 8</button>
           <button class="my-button" id="b9" onclick="toggle9Value()">Button 9</button>
@@ -87,18 +101,6 @@
           <button class="my-button" id="b12" onclick="toggle12Value()">Button 12</button>
       </div>
   <script>
-  // Function to change image from the door to the open door
-  function changeImage () {
-        var image = document.getElementById('door1')
-        if (image.src.match("door1.png")) {
-            image.src = "door1_Open.png"
-            image.alt = "Image 2";
-      } else {
-        image.src = "door1.png";
-        image.alt = "Image 1";
-        }
-    }
-
   // Variable to keep track of the button value
   var button1Value = 0;
   var button2Value = 0;
@@ -185,9 +187,26 @@
   button12Value = 1 - button12Value;
   }
 
+  function openDoor() {
+    var doorImage = document.getElementById('door')
+    doorImage.src = 'door1_Open.png';
+    doorImage.alt = 'Open Door';
+  }
+
+  function correctAnswer() {
+    var correctAnswer = false
+    if (button1Value === 1 && button5Value === 1 && button8Value === 1 && button11Value === 1) {
+      return correctAnswer = true
+    }
+    else {
+      return correctAnswer = false
+    }
+  }
+
   function checkAnswer(isCorrect) {
-      if (isCorrect) {
+    if (correctAnswer() === true) {
       document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')"; /* Replace with the path to your on lightbulb image */
+      openDoor();
     } else {
       alert("Incorrect answer. Try again!");
     }
