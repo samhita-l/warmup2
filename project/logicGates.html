@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* Remember to move the style into scss folder later */
+
+                /* Additional styles for positioning text paragraphs */
+        #t1,
+        #t2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
         /* Style for the main container */
         .main-container {
             display: flex;
@@ -18,6 +26,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-bottom: 20px; /* Add margin at the bottom */
+        }
+
+        .text-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px; /* Add margin at the bottom */
         }
 
         #lightbulb {
@@ -72,8 +88,23 @@
 
         /* Style for the "not" and "and" images */
         .logical-operators {
-            width: 50px; /* Adjust the size as needed */
-            height: 50px; /* Adjust the size as needed */
+        width: 50px; /* Adjust the size as needed */
+        height: 50px; /* Adjust the size as needed */
+        }
+
+        /* Style for the Check button */
+        #check {
+        padding: 20px; /* Increase padding for a larger button */
+        background-color: #4CAF50; /* Green background color */
+        color: white; /* White text color */
+        border: none; /* No border */
+        border-radius: 4px; /* Optional: Add rounded corners */
+        cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        /* Style for the Check button on hover */
+        #check:hover {
+        background-color: #45a049; /* Darker green background color on hover */
         }
     </style>
 </head>
@@ -84,22 +115,32 @@
             <div id="lightbulb"></div>
             <img src="door1.png" id="door1">
         </div>
+        <div class="text-buttons"">
+        <p>Which two numbers add up to 5?</p>
         <div class="button-container">
-            <button class="my-button" id="b1" onclick="toggle1Value()">Button 1</button>
-            <button class="my-button" id="b2" onclick="toggle2Value()">Button 2</button>
-            <button class="my-button" id="b3" onclick="toggle3Value()">Button 3</button>
-            <button class="my-button" id="b4" onclick="toggle4Value()">Button 4</button>
-            <button class="my-button" id="b5" onclick="toggle5Value()">Button 5</button>
-            <button class="my-button" id="b6" onclick="toggle6Value()">Button 6</button>
+            <button class="my-button" id="b1" onclick="toggle1Value()">2</button>
+            <button class="my-button" id="b2" onclick="toggle2Value()">8</button>
+            <button class="my-button" id="b3" onclick="toggle3Value()">9</button>
+            <button class="my-button" id="b4" onclick="toggle4Value()">7</button>
+            <button class="my-button" id="b5" onclick="toggle5Value()">3</button>
+            <button class="my-button" id="b6" onclick="toggle6Value()">1</button>
         </div>
+        </div>
+        <div class="text-buttons">
+        <p>Which word is a synonym to the word "binary"?</p>
         <div class="button-container">
-          <button class="my-button" id="b7" onclick="toggle7Value()">Button 7</button>
-          <button class="my-button" id="b8" onclick="toggle8Value()">Button 8</button>
-          <button class="my-button" id="b9" onclick="toggle9Value()">Button 9</button>
-          <button class="my-button" id="b10" onclick="toggle10Value()">Button 10</button>
-          <button class="my-button" id="b11" onclick="toggle11Value()">Button 11</button>
-          <button class="my-button" id="b12" onclick="toggle12Value()">Button 12</button>
-      </div>
+          <button class="my-button" id="b7" onclick="toggle7Value()">One</button>
+          <button class="my-button" id="b8" onclick="toggle8Value()">Dual</button>
+          <button class="my-button" id="b9" onclick="toggle9Value()">Careful</button>
+          <button class="my-button" id="b10" onclick="toggle10Value()">Utterance</button>
+          <button class="my-button" id="b11" onclick="toggle11Value()">Paired</button>
+          <button class="my-button" id="b12" onclick="toggle12Value()">Zero</button>
+        </div>
+        </div>
+      <div class="check">
+      <button id="check">Check!</button>
+    </div>
+    </div>
   <script>
   // Variable to keep track of the button value
   var button1Value = 0;
@@ -195,7 +236,7 @@
 
   function correctAnswer() {
     var correctAnswer = false
-    if (button1Value === 1 && button5Value === 1 && button8Value === 1 && button11Value === 1) {
+    if (button1Value === 1 && button5Value === 1 && button8Value === 1 || button11Value === 1) {
       return correctAnswer = true
     }
     else {
