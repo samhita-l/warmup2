@@ -1,94 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    /* Remember to move the style into scss folder later */
-    /* Style for the main container */
-    .main-container {
-      display: flex;
-    }
-
-    /* Style for the button container */
-    .button-container {
-      background-color: #c0c0c0; /* Greyish silver background color */
-      border: 2px solid black; /* Black border */
-      padding: 10px; /* Padding around the buttons */
-      width: 25%; /* Adjusted width to make it smaller */
-      display: grid; /* Use grid to arrange buttons */
-      grid-template-columns: repeat(3, 1fr); /* Three columns */
-      gap: 8px; /* Gap between buttons */
-    }
-
-    /* Style for the buttons */
-    .my-button {
-      background-color: #808080; /* Grey background color */
-      color: #000; /* Black text color */
-      padding: 8px 16px; /* Padding inside the button */
-      border: 2px solid black; /* Black border */
-      border-radius: 4px; /* Optional: Add rounded corners */
-      cursor: pointer; /* Change cursor to pointer on hover */
-    }
-
-    /* Style for the door and lightbulb container */
-    .door-lightbulb-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #door1 {
-      width: 300px;
-      height: 650px;
-      margin: 20px;
-    }
-
-    #lightbulb {
-      width: 100px;
-      height: 100px;
-      margin: 20px;
-      background-image: url('off_lightbulb.png'); /* Replace with the path to your off lightbulb image */
-      background-size: cover;
-    }
-
-    .button {
-      padding: 10px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <div class="main-container">
-    <div class="door-lightbulb-container">
-      <img src="door1.png" width="300" height="650" id="door1">
-      <div id="lightbulb"></div>
-    </div>
-    <div class="button-container">
-      <button class="my-button" id="b1" onclick="toggle1Value()">Button 1</button>
-      <button class="my-button" id="b2" onclick="toggle2Value()">Button 2</button>
-      <button class="my-button" id="b3" onclick="toggle3Value()">Button 3</button>
-      <button class="my-button" id="b4" onclick="toggle4Value()">Button 4</button>
-      <button class="my-button" id="b5" onclick="toggle5Value()">Button 5</button>
-      <button class="my-button" id="b6" onclick="toggle6Value()">Button 6</button>
-    </div>
-  </div>
-  <button class="button" onclick="checkAnswer(true)">True</button>
-  <button class="button" onclick="checkAnswer(false)">False</button>
-  <script>
-  // Function to change image from the door to the open door
-  function changeImage () {
-        var image = document.getElementById('door1')
-        if (image.src.match("door1.png")) {
-            image.src = "door1_Open.png"
-            image.alt = "Image 2";
-      } else {
-        image.src = "door1.png";
-        image.alt = "Image 1";
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Remember to move the style into scss folder later */
+        /* Style for the main container */
+        .main-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-    }
 
+        /* Style for the door-lightbulb-container */
+        .door-lightbulb-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #lightbulb {
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+            background-image: url('off_lightbulb.png'); /* Replace with the path to your off lightbulb image */
+            background-size: cover;
+        }
+
+        #door1 {
+            width: 250px; /* Adjusted width to make it smaller */
+            height: 550px; /* Adjusted height to make it smaller */
+            margin: 20px;
+        }
+
+        /* Style for the button-container */
+        .button-container {
+            background-color: #f0f0f0; /* Lighter background color */
+            border: 2px solid #999; /* Lighter border color */
+            padding: 15px; /* Increased padding around the buttons */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three columns */
+            gap: 12px; /* Increased gap between buttons */
+            align-items: center;
+            margin-top: 20px; /* Adjusted margin between the two button containers */
+        }
+
+        /* Style for the buttons in the container */
+        .button-container.my-button {
+            background-color: #b0b0b0; /* Lighter grey background color */
+            color: #333; /* Darker text color */
+            border: 2px solid #666; /* Darker border color */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+        }
+
+        .button-container .my-button:hover {
+            background-color: #808080; /* Darker grey background color on hover */
+            color: #fff; /* White text color on hover */
+        }
+
+        /* Style for the buttons */
+        .my-button {
+            background-color: #808080; /* Grey background color */
+            color: #000; /* Black text color */
+            padding: 16px; /* Increase padding inside the button */
+            border: 2px solid black; /* Black border */
+            border-radius: 4px; /* Optional: Add rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            margin-bottom: 8px; /* Adjusted margin between buttons */
+        }
+
+        /* Style for the "not" and "and" images */
+        .logical-operators {
+            width: 50px; /* Adjust the size as needed */
+            height: 50px; /* Adjust the size as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="door-lightbulb-container">
+            <div id="lightbulb"></div>
+            <img src="door1.png" id="door1">
+        </div>
+        <div class="button-container">
+            <button class="my-button" id="b1" onclick="toggle1Value()">Button 1</button>
+            <button class="my-button" id="b2" onclick="toggle2Value()">Button 2</button>
+            <button class="my-button" id="b3" onclick="toggle3Value()">Button 3</button>
+            <button class="my-button" id="b4" onclick="toggle4Value()">Button 4</button>
+            <button class="my-button" id="b5" onclick="toggle5Value()">Button 5</button>
+            <button class="my-button" id="b6" onclick="toggle6Value()">Button 6</button>
+        </div>
+        <div class="button-container">
+          <button class="my-button" id="b7" onclick="toggle7Value()">Button 7</button>
+          <button class="my-button" id="b8" onclick="toggle8Value()">Button 8</button>
+          <button class="my-button" id="b9" onclick="toggle9Value()">Button 9</button>
+          <button class="my-button" id="b10" onclick="toggle10Value()">Button 10</button>
+          <button class="my-button" id="b11" onclick="toggle11Value()">Button 11</button>
+          <button class="my-button" id="b12" onclick="toggle12Value()">Button 12</button>
+      </div>
+  <script>
   // Variable to keep track of the button value
   var button1Value = 0;
   var button2Value = 0;
@@ -96,6 +108,12 @@
   var button4Value = 0;
   var button5Value = 0;
   var button6Value = 0;
+  var button7Value = 0;
+  var button8Value = 0;
+  var button9Value = 0;
+  var button10Value = 0;
+  var button11Value = 0;
+  var button12Value = 0;
 
   // Function to toggle the button value
   function toggle1Value() {
@@ -133,9 +151,62 @@
   button6Value = 1 - button6Value;
   }
 
+    // Function to toggle the button value
+    function toggle7Value() {
+    // Toggle between 0 and 1
+    button7Value = 1 - button7Value;
+  }
+
+  // Function to toggle the button value
+  function toggle8Value() {
+  // Toggle between 0 and 1
+  button8Value = 1 - button8Value;
+  }
+
+  // Function to toggle the button value
+  function toggle9Value() {
+  // Toggle between 0 and 1
+  button9Value = 1 - button9Value;
+  }
+
+  // Function to toggle the button value
+  function toggle10Value() {
+  // Toggle between 0 and 1
+  button10Value = 1 - button10Value;
+  }
+
+  // Function to toggle the button value
+  function toggle11Value() {
+  // Toggle between 0 and 1
+  button11Value = 1 - button11Value;
+  }
+
+  // Function to toggle the button value
+  function toggle12Value() {
+  // Toggle between 0 and 1
+  button12Value = 1 - button12Value;
+  }
+
+  function openDoor() {
+    var doorImage = document.getElementById('door')
+    doorImage.src = 'door1_Open.png';
+    doorImage.alt = 'Open Door';
+  }
+
+  function correctAnswer() {
+    var correctAnswer = false
+    if (button1Value === 1 && button5Value === 1 && button8Value === 1 && button11Value === 1) {
+      return correctAnswer = true
+    }
+    else {
+      return correctAnswer = false
+    }
+  }
+
   function checkAnswer(isCorrect) {
-      if (isCorrect) {
+    if (correctAnswer() === true) {
       document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')"; /* Replace with the path to your on lightbulb image */
+      openDoor();
     } else {
       alert("Incorrect answer. Try again!");
     }
