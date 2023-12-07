@@ -101,18 +101,20 @@
 
         /* Style for the Check button */
         #check {
-        padding: 20px; /* Increase padding for a larger button */
-        background-color: #4CAF50; /* Green background color */
-        color: white; /* White text color */
-        border: none; /* No border */
-        border-radius: 4px; /* Optional: Add rounded corners */
-        cursor: pointer; /* Change cursor to pointer on hover */
+            padding: 20px; /* Increase padding for a larger button */
+            background-color: #4CAF50; /* Green background color */
+            color: white; /* White text color */
+            border: none; /* No border */
+            border-radius: 4px; /* Optional: Add rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            margin-top: 20px; /* Adjusted margin from the button container */
         }
 
         /* Style for the Check button on hover */
         #check:hover {
-        background-color: #45a049; /* Darker green background color on hover */
+            background-color: #45a049; /* Darker green background color on hover */
         }
+
     </style>
 </head>
 
@@ -133,8 +135,7 @@
           <button class="my-button" id="b5" onclick="toggle5Value(this);">3</button>
           <button class="my-button" id="b6" onclick="toggle6Value(this);">1</button>
         </div>
-        </div>
-        <div class="text-buttons">
+        <br>
         <img src="or.png">
         <p>Which word is a synonym to the word "binary"?</p>
         <div class="button-container">
@@ -148,6 +149,7 @@
         <button id="check" onclick="checkAnswer()">Check!</button>
         </div>
     </div>
+  </body>
   <script>
 
 
