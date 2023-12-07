@@ -75,6 +75,11 @@
             color: #fff; /* White text color on hover */
         }
 
+        .clicked {
+            background-color: blue; /* Change color if clicked */
+            color: white; /* Change text color if clicked */
+        }
+
         /* Style for the buttons */
         .my-button {
             background-color: #808080; /* Grey background color */
@@ -84,6 +89,8 @@
             border-radius: 4px; /* Optional: Add rounded corners */
             cursor: pointer; /* Change cursor to pointer on hover */
             margin-bottom: 8px; /* Adjusted margin between buttons */
+            position: relative; /* Add this line to enable z-index */
+            z-index: 1; /* Add this line to control the stacking order */
         }
 
         /* Style for the "not" and "and" images */
@@ -118,23 +125,23 @@
         <div class="text-buttons"">
         <p>Which two numbers add up to 5?</p>
         <div class="button-container">
-            <button class="my-button" id="b1" onclick="toggle1Value()">2</button>
-            <button class="my-button" id="b2" onclick="toggle2Value()">8</button>
-            <button class="my-button" id="b3" onclick="toggle3Value()">9</button>
-            <button class="my-button" id="b4" onclick="toggle4Value()">7</button>
-            <button class="my-button" id="b5" onclick="toggle5Value()">3</button>
-            <button class="my-button" id="b6" onclick="toggle6Value()">1</button>
+          <button class="my-button" id="b1" onclick="toggle1Value(this);">2</button>
+          <button class="my-button" id="b2" onclick="toggle2Value(this);">8</button>
+          <button class="my-button" id="b3" onclick="toggle3Value(this);">9</button>
+          <button class="my-button" id="b4" onclick="toggle4Value(this);">7</button>
+          <button class="my-button" id="b5" onclick="toggle5Value(this);">3</button>
+          <button class="my-button" id="b6" onclick="toggle6Value(this);">1</button>
         </div>
         </div>
         <div class="text-buttons">
         <p>Which word is a synonym to the word "binary"?</p>
         <div class="button-container">
-          <button class="my-button" id="b7" onclick="toggle7Value()">One</button>
-          <button class="my-button" id="b8" onclick="toggle8Value()">Dual</button>
-          <button class="my-button" id="b9" onclick="toggle9Value()">Careful</button>
-          <button class="my-button" id="b10" onclick="toggle10Value()">Utterance</button>
-          <button class="my-button" id="b11" onclick="toggle11Value()">Paired</button>
-          <button class="my-button" id="b12" onclick="toggle12Value()">Zero</button>
+          <button class="my-button" id="b7" onclick="toggle7Value(this);">One</button>
+          <button class="my-button" id="b8" onclick="toggle8Value(this);">Dual</button>
+          <button class="my-button" id="b9" onclick="toggle9Value(this);">Careful</button>
+          <button class="my-button" id="b10" onclick="toggle10Value(this);">Utterance</button>
+          <button class="my-button" id="b11" onclick="toggle11Value(this);">Paired</button>
+          <button class="my-button" id="b12" onclick="toggle12Value(this);">Zero</button>
         </div>
         </div>
       <div class="check">
@@ -142,6 +149,8 @@
     </div>
     </div>
   <script>
+
+
   // Variable to keep track of the button value
   var button1Value = 0;
   var button2Value = 0;
@@ -157,79 +166,91 @@
   var button12Value = 0;
 
   // Function to toggle the button value
-  function toggle1Value() {
+  function toggle1Value(button) {
     // Toggle between 0 and 1
     button1Value = 1 - button1Value;
+    changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle2Value() {
-  // Toggle between 0 and 1
-  button2Value = 1 - button2Value;
+  function toggle2Value(button) {
+    // Toggle between 0 and 1
+    button2Value = 1 - button2Value;
+    changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle3Value() {
-  // Toggle between 0 and 1
-  button3Value = 1 - button3Value;
+  function toggle3Value(button) {
+    // Toggle between 0 and 1
+    button3Value = 1 - button3Value;
+    changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle4Value() {
-  // Toggle between 0 and 1
-  button4Value = 1 - button4Value;
+  function toggle4Value(button) {
+    // Toggle between 0 and 1
+    button4Value = 1 - button4Value;
+    changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle5Value() {
-  // Toggle between 0 and 1
-  button5Value = 1 - button5Value;
+  function toggle5Value(button) {
+    // Toggle between 0 and 1
+    button5Value = 1 - button5Value;
+    changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle6Value() {
-  // Toggle between 0 and 1
-  button6Value = 1 - button6Value;
+  function toggle6Value(button) {
+    // Toggle between 0 and 1
+    button6Value = 1 - button6Value;
+    changeColor(button);
   }
 
     // Function to toggle the button value
-    function toggle7Value() {
+    function toggle7Value(button) {
     // Toggle between 0 and 1
     button7Value = 1 - button7Value;
+    changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle8Value() {
+  function toggle8Value(button) {
   // Toggle between 0 and 1
   button8Value = 1 - button8Value;
+  changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle9Value() {
+  function toggle9Value(button) {
   // Toggle between 0 and 1
   button9Value = 1 - button9Value;
+  changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle10Value() {
+  function toggle10Value(button) {
   // Toggle between 0 and 1
   button10Value = 1 - button10Value;
+  changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle11Value() {
+  function toggle11Value(button) {
   // Toggle between 0 and 1
   button11Value = 1 - button11Value;
+  changeColor(button);
   }
 
   // Function to toggle the button value
-  function toggle12Value() {
+  function toggle12Value(button) {
   // Toggle between 0 and 1
   button12Value = 1 - button12Value;
+  changeColor(button);
   }
 
   function openDoor() {
-    var doorImage = document.getElementById('door')
+    var doorImage = document.getElementById('door1')
     doorImage.src = 'door1_Open.png';
     doorImage.alt = 'Open Door';
   }
@@ -252,6 +273,27 @@
       alert("Incorrect answer. Try again!");
     }
   }
+
+  function changeColor(button) {
+    if (button.style.backgroundColor === 'blue') {
+        button.style.backgroundColor = ''; // Reset to default color
+    } else {
+        button.style.backgroundColor = 'blue';
+    }
+}
+  function checkAnswer() {
+    if (correctAnswer()) {
+        document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')";
+        openDoor();
+        alert("Correct! You can move on to the next level.");
+        // Add code here to proceed to the next level if needed
+    } else {
+        alert("Incorrect answer. Try again!");
+    }
+}
+
+
+  
 </script>
 </body>
 </html>
