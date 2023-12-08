@@ -41,8 +41,8 @@
 </head>
 <body>
   <div id="userInputs">
-    <h1 id="Converting Binary Into Colors">Converting Binary Into Colors</h1> <!-- Represents the title -->
-    <p id="This is a program that allows you to convert any binary code into colors!">This is a program that allows you to convert any binary code into colors</p> <!-- Represents the description -->
+    <h1 id="title">Converting Binary Into Colors</h1> <!-- Represents the title -->
+    <p id="description">This is a program that allows you to convert any binary code into colors</p> <!-- Represents the description -->
   </div>
 
   <div id="converterContainer">
@@ -50,6 +50,24 @@
     <button id="convertButton">Convert</button> <!-- Button to trigger the conversion -->
   </div>
 
-  <script src="script.js"></script> <!-- Links the external JavaScript file to this HTML file -->
+  <script>
+    // JavaScript code for handling the binary input and changing the background color
+    function convertBinaryToColor() {
+      const binaryInput = document.getElementById('binaryInput').value;
+
+      // Check if the input is a valid binary number
+      if (/^[01]+$/.test(binaryInput)) {
+        const decimalValue = parseInt(binaryInput, 2);
+        const hexColor = decimalValue.toString(16).padStart(6, '0'); // Convert to hexadecimal
+
+        document.body.style.backgroundColor = `#${hexColor}`; // Changes the background color of the body
+      } else {
+        alert('Please enter a valid binary number (0s and 1s only).'); // Alert for invalid input
+      }
+    }
+
+    const convertButton = document.getElementById('convertButton');
+    convertButton.addEventListener('click', convertBinaryToColor); // Adds event listener for the "Convert" button
+  </script>
 </body>
 </html>
