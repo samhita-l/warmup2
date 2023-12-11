@@ -119,6 +119,41 @@
             background-color: #45a049; /* Darker green background color on hover */
         }
 
+        #enter {
+          padding: 20px; /* Increase padding for a larger button */
+            background-color: #ca1fa5; /* Pink background color */
+            color: white; /* White text color */
+            border: none; /* No border */
+            border-radius: 4px; /* Optional: Add rounded corners */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            margin-top: 20px; /* Adjusted margin from the button container */
+        }
+
+        /* Style for the Enter button on hover */
+        #enter:hover {
+            background-color: #e925ae; /* Pinker background color on hover */
+        }
+
+        /* Style for the level-specific content */
+        #level-container {
+            text-align: center;
+            display: none;
+        }
+
+        #level-container p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        #level-container input {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        #level-container button {
+            font-size: 16px;
+        }
+
         /* Style for the "and" and "or" images */
         #and,
         #or {
@@ -164,6 +199,8 @@
           <button class="my-button" id="b12" onclick="toggle12Value(this);">Zero</button>
         </div>
         <button id="check" onclick="checkAnswer()">Check!</button>
+        </div>
+        <button id="enter" onclick="clickEnter()">Enter!</button>
         </div>
     </div>
   </body>
@@ -300,6 +337,16 @@
         button.style.backgroundColor = 'blue';
     }
 }
+function generateNewDoor() {
+            var doorContainer = document.querySelector('.door-lightbulb-container');
+            var newDoorImage = document.createElement('img');
+            newDoorImage.src = 'door1.png';
+            newDoorImage.id = 'door1';
+            newDoorImage.style.width = '250px';
+            newDoorImage.style.height = '550px';
+            newDoorImage.style.margin = '20px';
+            doorContainer.replaceChild(newDoorImage, doorContainer.firstChild);
+}
   function checkAnswer() {
     if (correctAnswer()) {
         document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')";
@@ -310,6 +357,46 @@
         alert("Incorrect answer. Try again!");
     }
 }
+function clickEnter() {
+            // Hide current content
+            document.querySelector('.text-buttons').style.display = 'none';
+
+            // Display level-specific content
+            var levelContainer = document.getElementById('level-container');
+            levelContainer.style.display = 'block';
+
+            // Generate a new door
+            generateNewDoor();
+
+            // Replace the following content with your new level questions and buttons
+            levelContainer.innerHTML = `
+                <p>New level: Which animal barks?</p>
+                <div class="button-container">
+                    <button class="my-button" id="b13" onclick="toggle13Value(this);">Cat</button>
+                    <button class="my-button" id="b14" onclick="toggle14Value(this);">Dog</button>
+                    <button class="my-button" id="b15" onclick="toggle15Value(this);">Bird</button>
+                </div>
+                <button id="check" onclick="checkAnswer()">Check!</button>
+            `;
+        }
+
+  function toggle13Value(button) {
+    // Toggle between 0 and 1
+    // Add your logic for this button
+    changeColor(button);
+  }
+
+  function toggle14Value(button) {
+    // Toggle between 0 and 1
+    // Add your logic for this button
+    changeColor(button);
+  }
+
+  function toggle15Value(button) {
+    // Toggle between 0 and 1
+    // Add your logic for this button
+    changeColor(button);
+  }
 
 
   
