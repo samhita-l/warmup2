@@ -176,7 +176,7 @@
             <div id="lightbulb"></div>
             <img src="door1.png" id="door1">
         </div>
-        <div class="text-buttons"">
+        <div class="text-buttons">
         <img src="and.png" id="and">
         <p>Which two numbers add up to 5?</p>
         <div class="button-container">
@@ -199,9 +199,10 @@
           <button class="my-button" id="b12" onclick="toggle12Value(this);">Zero</button>
         </div>
         <button id="check" onclick="checkAnswer()">Check!</button>
-        </div>
-        <button id="enter" onclick="clickEnter()">Enter!</button>
-        </div>
+      </div>
+      <button id="enter" onclick="clickEnter()" style="display: none;">Enter!</button>
+    </div>
+    <div id="level-container">
     </div>
   </body>
   <script>
@@ -304,6 +305,29 @@
   button12Value = 1 - button12Value;
   changeColor(button);
   }
+  function toggle13Value(button) {
+            // Toggle between 0 and 1
+            // Add your logic for this button
+            changeColor(button);
+  }
+
+  function toggle14Value(button) {
+            // Toggle between 0 and 1
+            // Add your logic for this button
+            changeColor(button);
+  }
+
+  function toggle15Value(button) {
+            // Toggle between 0 and 1
+            // Add your logic for this button
+            changeColor(button);
+  }
+
+  function toggle16Value(button) {
+            // Toggle between 0 and 1
+            // Add your logic for this button
+            changeColor(button);
+  }
 
   function openDoor() {
     var doorImage = document.getElementById('door1')
@@ -338,63 +362,57 @@
     }
 }
 function generateNewDoor() {
-            var doorContainer = document.querySelector('.door-lightbulb-container');
-            var newDoorImage = document.createElement('img');
-            newDoorImage.src = 'door1.png';
-            newDoorImage.id = 'door1';
-            newDoorImage.style.width = '250px';
-            newDoorImage.style.height = '550px';
-            newDoorImage.style.margin = '20px';
-            doorContainer.replaceChild(newDoorImage, doorContainer.firstChild);
+    var doorContainer = document.querySelector('.door-lightbulb-container');
+
+    // Clear the existing content inside the doorContainer
+    doorContainer.innerHTML = '';
+
+    var newDoorImage = document.createElement('img');
+    newDoorImage.src = 'door2.png';
+    newDoorImage.id = 'door2';
+    newDoorImage.style.width = '250px';
+    newDoorImage.style.height = '550px';
+    newDoorImage.style.margin = '20px';
+    newDoorImage.style.position = 'absolute'; // Position absolutely within the container
+    doorContainer.appendChild(newDoorImage); // Append the new door to the container
 }
-  function checkAnswer() {
-    if (correctAnswer()) {
-        document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')";
-        openDoor();
-        alert("Correct! You can move on to the next level.");
-        // Add code here to proceed to the next level if needed
-    } else {
-        alert("Incorrect answer. Try again!");
-    }
-}
-function clickEnter() {
-            // Hide current content
-            document.querySelector('.text-buttons').style.display = 'none';
-
-            // Display level-specific content
-            var levelContainer = document.getElementById('level-container');
-            levelContainer.style.display = 'block';
-
-            // Generate a new door
-            generateNewDoor();
-
-            // Replace the following content with your new level questions and buttons
-            levelContainer.innerHTML = `
-                <p>New level: Which animal barks?</p>
-                <div class="button-container">
-                    <button class="my-button" id="b13" onclick="toggle13Value(this);">Cat</button>
-                    <button class="my-button" id="b14" onclick="toggle14Value(this);">Dog</button>
-                    <button class="my-button" id="b15" onclick="toggle15Value(this);">Bird</button>
-                </div>
-                <button id="check" onclick="checkAnswer()">Check!</button>
-            `;
+function checkAnswer() {
+            if (correctAnswer()) {
+                document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')";
+                openDoor();
+                alert("Correct! You can move on to the next level.");
+                generateNewDoor(); // Call this to generate a new door
+                document.getElementById('enter').style.display = 'block'; // Show the "Enter" button
+            } else {
+                alert("Incorrect answer. Try again!");
+            }
         }
 
-  function toggle13Value(button) {
-    // Toggle between 0 and 1
-    // Add your logic for this button
-    changeColor(button);
-  }
+function clickEnter() {
+    // Hide current content
+    document.querySelector('.text-buttons').style.display = 'none';
 
-  function toggle14Value(button) {
-    // Toggle between 0 and 1
-    // Add your logic for this button
-    changeColor(button);
-  }
+    // Display level-specific content
+    var levelContainer = document.getElementById('level-container');
+    levelContainer.style.display = 'block';
 
+    // Update questions and choices
+    var andImage = document.getElementById('and');
+    var orImage = document.getElementById('or');
+    andImage.src = 'nor_gate_image.png'; // Replace with the path to your nor gate image
+    orImage.src = 'not_gate_image.png'; // Replace with the path to your not gate image
 
+    // Show the "Check" button for the new level
+    document.getElementById('check').style.display = 'block';
 
-  
+    // Hide the "Enter" button after clicking
+    document.getElementById('enter').style.display = 'none';
+
+    // Replace the door image with a new door
+    var doorImage = document.getElementById('door1');
+    doorImage.src = 'door2.png'; // Replace with the path to your new door image
+}
+ 
 </script>
 </body>
 </html>
