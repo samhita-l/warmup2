@@ -199,8 +199,8 @@
           <button class="my-button" id="b12" onclick="toggle12Value(this);">Zero</button>
         </div>
         <button id="check" onclick="checkAnswer()">Check!</button>
+        <button id="enter" onclick="clickEnter()" style="display: none;">Enter!</button>
       </div>
-      <button id="enter" onclick="clickEnter()" style="display: none;">Enter!</button>
     </div>
     <div id="level-container">
     </div>
@@ -361,27 +361,11 @@
         button.style.backgroundColor = 'blue';
     }
 }
-function generateNewDoor() {
-    var doorContainer = document.querySelector('.door-lightbulb-container');
-
-    // Clear the existing content inside the doorContainer
-    doorContainer.innerHTML = '';
-
-    var newDoorImage = document.createElement('img');
-    newDoorImage.src = 'door2.png';
-    newDoorImage.id = 'door2';
-    newDoorImage.style.width = '250px';
-    newDoorImage.style.height = '550px';
-    newDoorImage.style.margin = '20px';
-    newDoorImage.style.position = 'absolute'; // Position absolutely within the container
-    doorContainer.appendChild(newDoorImage); // Append the new door to the container
-}
 function checkAnswer() {
             if (correctAnswer()) {
                 document.getElementById('lightbulb').style.backgroundImage = "url('on_lightbulb.png')";
                 openDoor();
                 alert("Correct! You can move on to the next level.");
-                generateNewDoor(); // Call this to generate a new door
                 document.getElementById('enter').style.display = 'block'; // Show the "Enter" button
             } else {
                 alert("Incorrect answer. Try again!");
